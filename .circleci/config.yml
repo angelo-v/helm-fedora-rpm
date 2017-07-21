@@ -1,0 +1,13 @@
+version: 2.0
+    
+jobs:
+  build:
+    docker:
+      - image: fedora
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: dnf install -y fedora-packager
+      - run: ./build.sh      
+    post:
+      - mv x86_64/* $CIRCLE_ARTIFACTS/
