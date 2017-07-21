@@ -1,7 +1,4 @@
 version: 2.0
-general:
-  artifacts:
-    - "x86_64"    
 jobs:
   build:
     docker:
@@ -11,3 +8,4 @@ jobs:
       - checkout
       - run: dnf install -y fedora-packager
       - run: ./build.sh      
+      - run: mv x86_64/* $CIRCLE_ARTIFACTS/
