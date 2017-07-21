@@ -8,4 +8,6 @@ jobs:
       - checkout
       - run: dnf install -y fedora-packager
       - run: ./build.sh      
+      - run: ls -lah x86_64/
       - run: mv x86_64/* $CIRCLE_ARTIFACTS/
+      - run: ls -lah $CIRCLE_ARTIFACTS/
